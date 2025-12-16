@@ -1,63 +1,98 @@
+
 # CryptoCurrency Converter
 
-Lightweight Node.js + Express app that fetches live cryptocurrency prices and converts amounts between fiat currencies and cryptocurrencies.
+A small Node.js + Express web app with an EJS frontend that fetches live cryptocurrency prices and converts amounts between fiat and crypto currencies.
 
-## What to upload to GitHub
-- `index.js` — main server file (entry point).
-- `package.json` — project metadata and scripts.
-- `package-lock.json` — (recommended) locks exact dependency versions.
-- `public/` — static assets (styles, client JS, images).
-- `views/` — EJS templates used by the app.
-- `README.md` — this file.
-- Any config or helper files required to run the app (for example `utils.js`, `routes/`, etc.).
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+- [Demo](#demo)
+- [Prerequisites](#prerequisites)
+- [Install](#install)
+- [Environment variables](#environment-variables)
+- [Run](#run)
+- [Files to include on GitHub](#files-to-include-on-github)
+- [Contributing](#contributing)
+- [License](#license)
 
-Do NOT upload:
-- `node_modules/` — huge and platform-specific. Add this to `.gitignore`.
-- `.env` or other files that contain API keys or secrets.
-- Local editor files (e.g. `.vscode/`), OS files (e.g. `.DS_Store`).
+## About
 
-## Suggested .gitignore
-```
-node_modules/
-.env
-.DS_Store
-npm-debug.log
-coverage/
-dist/
-```
+This repository contains a learning-focused currency converter that uses a public crypto rates API to convert between fiat currencies (USD, EUR, etc.) and cryptocurrencies (BTC, ETH, etc.). The app is intentionally small and easy to extend.
 
-## Install & run (npm)
-1. Install dependencies:
+## Features
+- Fetches live rates from a public API (via `axios`).
+- Simple responsive UI using EJS templates.
+- Server-side conversion logic in `index.js`.
+
+## Demo
+Run locally (instructions below) and open `http://localhost:3000` (or your configured `PORT`).
+
+## Prerequisites
+- Node.js 16+ and npm
+
+## Install
+
+Clone the repo and install dependencies:
 
 ```bash
+git clone https://github.com/TenathDilusha/CryptoCurrency-Converter.git
+cd CryptoCurrency-Converter
 npm install
 ```
 
-2. Start the app:
+## Environment variables
+Create a `.env` file (do NOT commit it). Use `.env.example` as a template.
 
-```bash
-npm start
-# or for development with automatic restarts (if you use nodemon):
-npx nodemon index.js
-```
-
-If `package.json` defines a `start` script (for example `node index.js`), use `npm start`.
-
-## Environment / API keys
-- If the app uses a crypto rates provider (CoinGecko, CoinAPI, etc.), keep API keys in a `.env` file and load them with `dotenv` in `index.js`.
-- Example `.env` entries:
+Example `.env`:
 
 ```
 API_KEY=your_api_key_here
 PORT=3000
 ```
 
-Do NOT commit `.env` to GitHub.
+Load environment variables in `index.js` with `dotenv` if needed.
 
-## Notes & tips
-- Commit `package-lock.json` so others install the exact dependency tree you tested.
-- Add a short `usage` section or screenshots to the README for clarity.
-- If the project will be public and uses a paid API, consider showing how to obtain a free API key or switch to a free provider.
+## Run
+
+Start the server:
+
+```bash
+npm start
+# for development with auto-restart:
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser.
+
+## Files to include on GitHub
+Upload these project files and folders:
+
+- `index.js` — server entry point
+- `package.json` — dependencies and scripts
+- `package-lock.json` — recommended to commit (after `npm install`)
+- `public/` — static assets (CSS, client JS, images)
+- `views/` — EJS templates
+- `README.md` — this file
+- `.env.example` — example environment variables (safe to include)
+- any helper modules or folders your app uses (for example `routes/`)
+
+Do NOT commit:
+
+- `node_modules/`
+- `.env` (secrets/API keys)
+- OS/editor files like `.DS_Store` or `.vscode/`
+
+(.gitignore is provided in the repo.)
+
+## Contributing
+- Open an issue or send a pull request for bug fixes and enhancements.
+- Keep changes small and include instructions or examples for new features.
+
+## License
+This project has no license specified. Add a `LICENSE` file if you want to set one.
 
 ---
-If you want, I can also add a `.gitignore` file and a short `package.json` `start` script if they're missing.
+If you want, I can also:
+- Add a short usage example in the README showing a sample conversion request and response.
+- Add screenshots of the UI.
+- Add a `LICENSE` file (MIT/Apache/etc.).
