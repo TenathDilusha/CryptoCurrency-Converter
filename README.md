@@ -1,60 +1,138 @@
+# 🚀 CryptoRate Hub
 
-# CryptoCurrency Converter
+CryptoRate Hub is a web application that displays **live cryptocurrency values** for popular cryptocurrencies such as **Bitcoin (BTC)** and **Ethereum (ETH)** in multiple currencies: **USD, LKR, and EUR**.
 
-A small Node.js + Express web app with an EJS frontend that fetches live cryptocurrency prices and converts amounts between fiat and crypto currencies.
+This project was developed as a **capstone project** using **Node.js, Express, Axios, and EJS**, demonstrating how to integrate and work with public APIs and present real-time data in a user-friendly interface.
 
-## About
+---
 
-This repository contains a learning-focused currency converter that uses a public crypto rates API to convert between fiat currencies (USD, EUR, etc.) and cryptocurrencies (BTC, ETH, etc.). The app is intentionally small and easy to extend.
+## 📌 Features
 
-## Features
-- Fetches live rates from a public API (via `axios`).
-- Simple responsive UI using EJS templates.
-- Server-side conversion logic in `index.js`.
+* Live cryptocurrency prices
+* Supported cryptocurrencies:
 
-## Demo
-Run locally (instructions below) and open `http://localhost:3000` (or your configured `PORT`).
+  * Bitcoin (BTC)
+  * Ethereum (ETH)
+* Supported currencies:
 
-## Prerequisites
-- Node.js 16+ and npm
+  * 🇺🇸 USD
+  * 🇱🇰 LKR
+  * 🇪🇺 EUR
+* Real-time currency conversion
+* Values rounded to 2 decimal places
+* Clean and responsive UI
+* Server-side rendering using EJS
+* Graceful error handling
 
-## Install
+---
 
-Clone the repo and install dependencies:
+## 🛠 Technologies Used
+
+* **Node.js** – Runtime environment
+* **Express.js** – Web framework
+* **Axios** – HTTP client for API requests
+* **EJS** – Templating engine
+* **CSS** – Styling
+* **Body-parser** – Middleware for form handling
+
+---
+
+## 🔗 APIs Used
+
+### 1️⃣ CoinPaprika API
+
+Used to retrieve real-time cryptocurrency prices.
+
+```
+https://api.coinpaprika.com/v1/tickers
+```
+
+### 2️⃣ Exchange Rates API
+
+Used to retrieve live exchange rates (EUR as the base currency).
+
+```
+https://exchangeratesapi.io
+```
+
+## ⚙️ How the Application Works
+
+1. The **CoinPaprika API** provides cryptocurrency prices in USD.
+2. The **Exchange Rates API** provides EUR-based currency exchange rates.
+3. The application calculates:
+
+   * USD → LKR
+   * USD → EUR
+4. All values are rounded to **two decimal places** for readability.
+5. Data is passed from the Express server to the EJS template and rendered on the homepage.
+
+---
+
+## ▶️ How to Run the Project
+
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/TenathDilusha/CryptoCurrency-Converter.git
-cd CryptoCurrency-Converter
+git clone https://github.com/your-username/crypto-rate-hub.git
+```
+
+### 2️⃣ Navigate to the Project Directory
+
+```bash
+cd crypto-rate-hub
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
 npm install
 ```
 
-## Environment variables
-Create a `.env` file (do NOT commit it). Use `.env.example` as a template.
-
-Example `.env`:
-
-```
-API_KEY=your_api_key_here
-PORT=3000
-```
-
-Load environment variables in `index.js` with `dotenv` if needed.
-
-## Run
-
-Start the server:
+### 4️⃣ Start the Server
 
 ```bash
-npm start
-# for development with auto-restart:
-npm run dev
+nodemon index.js
 ```
 
-Open `http://localhost:3000` in your browser.
+Or
 
-## Contributing
-- Open an issue or send a pull request for bug fixes and enhancements.
-- Keep changes small and include instructions or examples for new features.
+```bash
+node index.js
+```
+
+### 5️⃣ Open in Your Browser
+
+```
+http://localhost:3000
+```
+
+---
+
+## ⚠️ Error Handling
+
+* API requests are wrapped in `try-catch` blocks
+* Prevents crashes when APIs are unavailable
+* Ensures smooth user experience even on request failures
+
+---
+
+## 📈 Future Improvements
+
+* Add more cryptocurrencies (SOL, BNB, ADA, etc.)
+* Allow users to select cryptocurrencies dynamically
+* Add charts to visualize price trends
+* Add dark/light mode toggle
+* Improve mobile responsiveness
+* Move API keys to environment variables
+
+---
+
+## 👨‍💻 Author
+
+**Tenath Dilusha**
+Computer Science & Engineering Student
+
+---
 
 
 
