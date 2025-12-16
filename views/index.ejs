@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs") %>
+  <main class="container">
+
+    <!-- Bitcoin Card -->
+    <div class="crypto-card">
+      <h2>Bitcoin (BTC)</h2>
+
+      <div class="price-row">
+        <span>USD</span>
+        <strong>$<%= rates.USD_btc %></strong>
+      </div>
+
+      <div class="price-row">
+        <span>LKR</span>
+        <strong>Rs.<%= rates.LKR_btc %> </strong>
+      </div>
+
+      <div class="price-row">
+        <span>EUR</span>
+        <strong>€<%= rates.EUR_btc %> </strong>
+      </div>
+    </div>
+
+    <!-- Ethereum Card -->
+    <div class="crypto-card">
+      <h2>Ethereum (ETH)</h2>
+
+      <div class="price-row">
+        <span>USD</span>
+        <strong>$<%= rates.USD_eth %> </strong>
+      </div>
+
+      <div class="price-row">
+        <span>LKR</span>
+        <strong>Rs. <%= rates.LKR_eth %> </strong>
+      </div>
+
+      <div class="price-row">
+        <span>EUR</span>
+        <strong>€<%= rates.EUR_eth %> </strong>
+      </div>
+    </div>
+
+  </main>
+
+  <%- include("partials/footer.ejs") %>
+
