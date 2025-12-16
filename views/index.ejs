@@ -1,45 +1,62 @@
 <%- include("partials/header.ejs") %>
   <main class="container">
 
-    <!-- Bitcoin Card -->
-    <div class="crypto-card">
-      <h2>Bitcoin (BTC)</h2>
+    <% if (error) { %>
+      <div class="error-message" style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffeaa7;">
+        <strong>⚠️ Warning:</strong> <%= error %>
+      </div>
+    <% } %>
 
-      <div class="price-row">
-        <span>USD</span>
-        <strong>$<%= rates.USD_btc %></strong>
+    <% if (rates) { %>
+      <!-- Bitcoin Card -->
+      <div class="crypto-card">
+        <h2>Bitcoin (BTC)</h2>
+
+        <div class="price-row">
+          <span>USD</span>
+          <strong>$<%= rates.USD_btc.toLocaleString() %></strong>
+        </div>
+
+        <div class="price-row">
+          <span>LKR</span>
+          <strong>Rs.<%= rates.LKR_btc.toLocaleString() %> </strong>
+        </div>
+
+        <div class="price-row">
+          <span>EUR</span>
+          <strong>€<%= rates.EUR_btc.toLocaleString() %> </strong>
+        </div>
       </div>
 
-      <div class="price-row">
-        <span>LKR</span>
-        <strong>Rs.<%= rates.LKR_btc %> </strong>
-      </div>
+      <!-- Ethereum Card -->
+      <div class="crypto-card">
+        <h2>Ethereum (ETH)</h2>
 
-      <div class="price-row">
-        <span>EUR</span>
-        <strong>€<%= rates.EUR_btc %> </strong>
-      </div>
-    </div>
+        <div class="price-row">
+          <span>USD</span>
+          <strong>$<%= rates.USD_eth.toLocaleString() %> </strong>
+        </div>
 
-    <!-- Ethereum Card -->
-    <div class="crypto-card">
-      <h2>Ethereum (ETH)</h2>
+        <div class="price-row">
+          <span>LKR</span>
+          <strong>Rs. <%= rates.LKR_eth.toLocaleString() %> </strong>
+        </div>
 
-      <div class="price-row">
-        <span>USD</span>
-        <strong>$<%= rates.USD_eth %> </strong>
+        <div class="price-row">
+          <span>EUR</span>
+          <strong>€<%= rates.EUR_eth.toLocaleString() %> </strong>
+        </div>
       </div>
-
-      <div class="price-row">
-        <span>LKR</span>
-        <strong>Rs. <%= rates.LKR_eth %> </strong>
+    <% } else { %>
+      <div class="error-state" style="text-align: center; padding: 40px;">
+        <h2 style="color: #e74c3c;">⚠️ Unable to Load Rates</h2>
+        <p>We're having trouble fetching cryptocurrency prices right now.</p>
+        <p>Please refresh the page or try again later.</p>
+        <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+          🔄 Retry
+        </button>
       </div>
-
-      <div class="price-row">
-        <span>EUR</span>
-        <strong>€<%= rates.EUR_eth %> </strong>
-      </div>
-    </div>
+    <% } %>
 
   </main>
 
